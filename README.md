@@ -1,5 +1,7 @@
 # WhatsApp Vibes 📊🎭
 
+> 📱 **Looking to transcribe and summarize WhatsApp voice messages? Check out [Mad Cat on the App Store](https://apps.apple.com/de/app/madcat-whatsapp-audio-to-text/id6636497169?l=en-GB)**
+
 A privacy-focused web application that analyzes your WhatsApp chat exports to reveal emoji usage patterns and insights. All processing happens locally in your browser - your data never leaves your device.
 
 ![WhatsApp Vibes Screenshot](./screenshot.png)
@@ -35,10 +37,6 @@ Visit the [live demo](https://pb.nxh.ch/f/VnRCYZrHrUp9) or open `index.html` dir
    - See total emojis used, unique emojis, and your top emoji
    - Explore the interactive bar chart of your top 20 emojis
    - Browse the complete ranked list of all emojis you've used
-
-
-### Building Minified Version
-The `whatsapp_vibes.html` file contains a minified version with all CSS and JavaScript inlined for easy distribution.
 
 ## Privacy & Security
 - ✅ **No server uploads**: All processing happens in your browser
