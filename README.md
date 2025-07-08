@@ -21,7 +21,7 @@ A privacy-focused web application that analyzes your WhatsApp chat exports to re
 
 ## Quick Start
 
-Visit the [live demo](https://pb.nxh.ch/f/VnRCYZrHrUp9) or open `index.html` directly in your browser.
+Visit the [live demo](https://vpdn.github.io/whatsapp-vibes/) or open `index.html` directly in your browser.
 
 ## How to Use
 
