@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Emoji Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/@zip.js/zip.js@2.7.34/dist/zip-full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WhatsApp Emoji Analyzer</h1>
+            <p class="subtitle">Discover your most used emojis from WhatsApp chats</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section id="upload-section" class="upload-container">
+                <div id="drop-zone" class="drop-zone">
+                    <svg class="upload-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <h2>Drop your WhatsApp archive here</h2>
+                    <p>or</p>
+                    <button class="btn-primary" id="file-select-btn">Choose File</button>
+                    <input type="file" id="file-input" accept=".zip,.txt" hidden>
+                    <p class="upload-hint">Upload a WhatsApp chat export (ZIP or TXT file)</p>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section id="loading-section" class="loading-container hidden">
+                <div class="loader"></div>
+                <p>Analyzing your emojis...</p>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="results-container hidden">
+                <div class="results-header">
+                    <h2>Your Emoji Analysis</h2>
+                    <button class="btn-secondary" id="new-analysis-btn">New Analysis</button>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Emojis</h3>
+                        <p class="stat-value" id="total-emojis">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Unique Emojis</h3>
+                        <p class="stat-value" id="unique-emojis">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Top Emoji</h3>
+                        <p class="stat-value" id="top-emoji">-</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-wrapper">
+                        <canvas id="emoji-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="emoji-list" id="emoji-list">
+                    <!-- Emoji list will be populated here -->
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="error-section" class="error-container hidden">
+                <div class="error-content">
+                    <svg class="error-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <h2>Oops! Something went wrong</h2>
+                    <p id="error-message">Unable to process the file</p>
+                    <button class="btn-primary" id="try-again-btn">Try Again</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>All processing happens in your browser. No data is uploaded to any server.</p>
+            <p class="footer-links">
+                <a href="#" id="how-to-export">How to export WhatsApp chat</a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- How to Export Modal -->
+    <div id="export-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>How to Export WhatsApp Chat</h2>
+            <div class="export-instructions">
+                <h3>On Android:</h3>
+                <ol>
+                    <li>Open the WhatsApp chat you want to export</li>
+                    <li>Tap the three dots menu (⋮) in the top right</li>
+                    <li>Select "More" → "Export chat"</li>
+                    <li>Choose "Without media" for faster processing</li>
+                    <li>Save or share the ZIP file</li>
+                </ol>
+                
+                <h3>On iPhone:</h3>
+                <ol>
+                    <li>Open the WhatsApp chat you want to export</li>
+                    <li>Tap the contact name at the top</li>
+                    <li>Scroll down and tap "Export Chat"</li>
+                    <li>Choose "Without Media"</li>
+                    <li>Save or share the ZIP file</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
